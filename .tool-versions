@@ -1,0 +1,8 @@
+golang        1.25.2
+golangci-lint 2.5.0
+pre-commit    4.3.0
+
+# Terraform needs to be defined globally with a version >= 1.11.0
+# because the acceptance test will create a temporary folder (in /tmp/)
+# and run terraform within. So define a version here is useless
+# terraform     1.11.4
