@@ -1,0 +1,10 @@
+provider_installation {
+
+  dev_overrides {
+      "trustbuilder/trustbuilder" = "$HOME/go/bin"
+  }
+
+  direct {
+    exclude = ["trustbuilder/trustbuilder"]
+  }
+}
