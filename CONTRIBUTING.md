@@ -35,9 +35,17 @@ OR:
     You can plan and apply locally with the version in development of this provider with:
     ```bash
     make install
+    #It avoids to modify directly your ~/.terraformrc file
     export TF_CLI_CONFIG_FILE=$PWD/dev.tfrc
     ```
-  It avoids to modify directly your `~/.terraformrc` file
+    From your testing terraform folder:
+    ```bash
+    # will return an error on the trustbuilder provider. Expected.
+    terraform init
+    # Do it for all other provider used
+    terraform providers lock "hashicorp/google"
+    terraform plan
+    ```
 4. pre-commit
     ```bash
     pre-commit install

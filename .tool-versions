@@ -1,5 +1,6 @@
 golang        1.25.2
 golangci-lint 2.5.0
+goreleaser    2.12.7
 pre-commit    4.3.0
 
 # Terraform needs to be defined globally with a version >= 1.11.0
