@@ -5,7 +5,7 @@ ci:
   autoupdate_commit_msg: "chore(pre-commit): autoupdate hooks"
 repos:
   - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.5.5
+    rev: v1.5.6
     hooks:
       - id: remove-crlf
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -26,12 +26,12 @@ repos:
         args: [ --markdown-linebreak-ext=md ]
       - id: requirements-txt-fixer
   - repo: https://github.com/golangci/golangci-lint
-    rev: v2.4.0  # Use the latest version
+    rev: v2.10.1  # Use the latest version
     hooks:
       - id: golangci-lint
         additional_dependencies: []
   - repo: https://github.com/compilerla/conventional-pre-commit
-    rev: v4.2.0
+    rev: v4.4.0
     hooks:
       - id: conventional-pre-commit
         stages: [ commit-msg ]
