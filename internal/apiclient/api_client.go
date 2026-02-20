@@ -319,24 +319,24 @@ func NewAPIClient(opt *ApiClientOpt) (*APIClient, error) {
 // This is useful for debugging.
 func (client *APIClient) toString() string {
 	var buffer bytes.Buffer
-	buffer.WriteString(fmt.Sprintf("uri: %s\n", client.Uri))
+	fmt.Fprintf(&buffer, "uri: %s\n", client.Uri)
 	if client.Jwt != nil {
-		buffer.WriteString(fmt.Sprintf("jwt_hashed_token.secret: %s\n", client.Jwt.Secret))
-		buffer.WriteString(fmt.Sprintf("jwt_hashed_token.algorithm: %s\n", client.Jwt.Algortithm))
-		buffer.WriteString(fmt.Sprintf("jwt_hashed_token.claimsJson: %s\n", client.Jwt.Claims))
+		fmt.Fprintf(&buffer, "jwt_hashed_token.secret: %s\n", client.Jwt.Secret)
+		fmt.Fprintf(&buffer, "jwt_hashed_token.algorithm: %s\n", client.Jwt.Algortithm)
+		fmt.Fprintf(&buffer, "jwt_hashed_token.claimsJson: %s\n", client.Jwt.Claims)
 	}
-	buffer.WriteString(fmt.Sprintf("insecure: %t\n", client.Insecure))
-	buffer.WriteString(fmt.Sprintf("username: %s\n", client.Username))
-	buffer.WriteString(fmt.Sprintf("password: %s\n", client.Password))
-	buffer.WriteString(fmt.Sprintf("id_attribute: %s\n", client.IdAttribute))
-	buffer.WriteString(fmt.Sprintf("write_returns_object: %t\n", client.WriteReturnsObject))
-	buffer.WriteString(fmt.Sprintf("create_returns_object: %t\n", client.CreateReturnsObject))
+	fmt.Fprintf(&buffer, "insecure: %t\n", client.Insecure)
+	fmt.Fprintf(&buffer, "username: %s\n", client.Username)
+	fmt.Fprintf(&buffer, "password: %s\n", client.Password)
+	fmt.Fprintf(&buffer, "id_attribute: %s\n", client.IdAttribute)
+	fmt.Fprintf(&buffer, "write_returns_object: %t\n", client.WriteReturnsObject)
+	fmt.Fprintf(&buffer, "create_returns_object: %t\n", client.CreateReturnsObject)
 	buffer.WriteString("headers:\n")
 	for k, v := range client.Headers {
-		buffer.WriteString(fmt.Sprintf("  %s: %s\n", k, v))
+		fmt.Fprintf(&buffer, "  %s: %s\n", k, v)
 	}
 	for _, n := range client.CopyKeys {
-		buffer.WriteString(fmt.Sprintf("  %s", n))
+		fmt.Fprintf(&buffer, "  %s", n)
 	}
 	return buffer.String()
 }
